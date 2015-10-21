@@ -44,14 +44,12 @@ public class DBUtils {
 		if (DB_TABLES_EXIST) {
 			return;
 		}
-
-		final String CORE_TABLE_NAME = SQL.SSN_USERS;
+		final String CORE_TABLE_NAME = SQL.USERS;
 
 		try (Connection conn = getConnection();
 				Statement stmt = conn.createStatement();) {
 			if (!doesTableExistInDB(conn, CORE_TABLE_NAME)) {
 				Log.info("Creating tables in database ...");
-
 				for (String query : CREATE_TABLE_LST) {
 					Log.debug("Executing query: " + query);
 					boolean status = stmt.execute(query);

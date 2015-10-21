@@ -11,7 +11,7 @@ public class SQL {
 	 * List the USERS table name, and list all queries related to this table
 	 * here.
 	 */
-	public static final String SSN_USERS = "SSN_USERS";
+	public static final String USERS = "USERS";
 
 	/**
 	 * Query to check if a given table exists in the H2 database.
@@ -27,7 +27,7 @@ public class SQL {
 	 * Query to create the USERS table.
 	 */
 	public static final String CREATE_USERS = "create table IF NOT EXISTS "
-			+ SSN_USERS + " ( user_id IDENTITY PRIMARY KEY,"
+			+ USERS + " ( user_id IDENTITY PRIMARY KEY,"
 			+ " user_name VARCHAR(100)," + " password VARCHAR(512),"
 			+ " salt VARCHAR(512) )";
 
@@ -35,22 +35,21 @@ public class SQL {
 	 * Query to load all users in the system.
 	 */
 	public static final String FIND_ALL_USERS = "select user_id, user_name, password,"
-			+ " salt " + " from " + SSN_USERS + " order by user_name";
+			+ " salt " + " from " + USERS + " order by user_name";
 
 	/**
 	 * Query to find a user details depending on his name. Note that this query
 	 * does a case insensitive search with the user name.
 	 */
-	public static final String FIND_USER_BY_NAME = "select user_id, user_name, password,"
-			+ " salt "
+	public static final String FIND_USER_BY_NAME = "select username, password"
 			+ " from "
-			+ SSN_USERS
-			+ " where UPPER(user_name) = UPPER(?)";
+			+ USERS
+			+ " where UPPER(username) = UPPER(?)";
 
 	/**
 	 * Query to insert a row into the users table.
 	 */
-	public static final String INSERT_USER = "insert into " + SSN_USERS
+	public static final String INSERT_USER = "insert into " + USERS
 			+ " (user_name, password, salt) values (?, ?, ?)";
 
 }

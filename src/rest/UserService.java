@@ -36,8 +36,8 @@ public class UserService extends BaseService {
 	 * @return - An object of type Response with the status of the request
 	 */
 	@POST
-	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	@Consumes({ MediaType.APPLICATION_JSON})
+	@Produces({ MediaType.APPLICATION_JSON })
 	@Path("/signup")
 	public Response addUser(User user) {
 		Log.enter(user);
@@ -130,7 +130,7 @@ public class UserService extends BaseService {
 	 * @return - Details of the User
 	 */
 	@GET
-	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	@Produces({MediaType.APPLICATION_JSON })
 	@Path("/{userName}")
 	public User loadUser(@PathParam("userName") String userName) {
 		Log.enter(userName);
